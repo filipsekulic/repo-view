@@ -1,0 +1,12 @@
+.repository-details-container {
+  &__back-button {
+    font-size: 20px;
+    margin: 20px;
+  }
+
+  &__repo-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+}
