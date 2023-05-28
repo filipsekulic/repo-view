@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './repository-list.scss';
+import { HEADER_CONFIGURATION } from '../utils/constants';
 
 const RepositoryList = () => {
   const navigate = useNavigate();
@@ -46,11 +47,7 @@ const RepositoryList = () => {
       try {
         const response = await fetch(
           `https://api.github.com/search/repositories?q=${activeTab}&sort=${sortBy}&order=${sortOrder}&page=${currentPage}`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_PERSONAL_ACCESS_TOKEN}`
-            }
-          }
+          HEADER_CONFIGURATION
         );
 
         const data = await response.json();
@@ -68,9 +65,9 @@ const RepositoryList = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams();
     searchParams.set('tab', activeTab);
-    searchParams.set('page', currentPage);
     searchParams.set('sort', sortBy);
     searchParams.set('order', sortOrder);
+    searchParams.set('page', currentPage);
 
     navigate({ search: searchParams.toString() });
   }, [activeTab, currentPage, sortBy, sortOrder, navigate]);
@@ -121,7 +118,7 @@ const RepositoryList = () => {
                 key={repository.id}
                 className="repository-list-container__repositories__repo-list-item">
                 <Link
-                  to={`/repositories/${repository.owner.login}/${repository.name}?tab=${activeTab}&page=${currentPage}&sort=${sortBy}&order=${sortOrder}`}>
+                  to={`/repositories/${repository.owner.login}/${repository.name}?tab=${activeTab}&sort=${sortBy}&order=${sortOrder}&page=${currentPage}`}>
                   <h3>{repository.name}</h3>
                 </Link>
                 <p>Stars: {repository.stargazers_count}</p>

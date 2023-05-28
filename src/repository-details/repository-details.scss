@@ -1,12 +1,60 @@
 .repository-details-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+
   &__back-button {
-    font-size: 20px;
-    margin: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #f44336;
+    }
   }
 
   &__repo-details {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
+    margin-inline-start: 50px;
+
+    h2 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 15px 0;
+      font-weight: bold;
+    }
+
+    img {
+      display: block;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+
+    h4 {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 5px;
+        margin-left: 15px;
+      }
+    }
   }
 }
