@@ -20,6 +20,7 @@ You may also see any lint errors in the console.
 
 Before you run the app you must create the `.env.development.local` file at the top level file hierarchy (like this one).
 
-Inside it add the fine-grained personal access token: `REACT_APP_PERSONAL_ACCESS_TOKEN = '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'`
+Inside it add your personal access token: `REACT_APP_PERSONAL_ACCESS_TOKEN = 'YOUR_PERSONAL_ACCESS_TOKEN'` 
+If you don't have it, you can create it from here: https://github.com/settings/tokens?type=beta
 
 This should be added in order to authenticate the requests with a GitHub personal access token to increase the rate limit. Authenticating with a personal access token allows making authenticated requests with a higher rate limit so no error occurs.
